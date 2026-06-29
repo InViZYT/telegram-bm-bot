@@ -14,6 +14,7 @@ BM_TOKEN = os.getenv("BM_TOKEN")
 
 if not TG_TOKEN or not BM_TOKEN:
     print("ВНИМАНИЕ: Токены не найдены! Проверьте наличие и заполнение файла .env")
+    raise RuntimeError("TG_TOKEN and BM_TOKEN are required environment variables.")
 
 bot = telebot.TeleBot(TG_TOKEN)
 HEADERS = {"Authorization": f"Bearer {BM_TOKEN}"}
